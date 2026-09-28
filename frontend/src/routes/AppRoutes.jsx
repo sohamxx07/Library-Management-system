@@ -1,7 +1,6 @@
 import React from 'react'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Layout from '../layout/Layout'
-import { Route, Routes } from 'react-router-dom'
-
 
 // Issue
 import IssueList from '../pages/Issue/IssueList'
@@ -40,52 +39,61 @@ import EditSetting from '../pages/Setting/EditSetting'
 
 const AppRoutes = () => {
     return (
-        <div>
+        <Routes>
 
-            <Routes>
+            {/* Default Route */}
+            <Route
+                path="/"
+                element={<Navigate to="/issue" replace />}
+            />
 
-                <Route element={<Layout />}>
+            {/* Layout */}
+            <Route element={<Layout />}>
 
-                    {/* Issue */}
-                    <Route path="/issue" element={<IssueList />} />
-                    <Route path="/issue/create" element={<CreateIssue />} />
-                    <Route path="/issue/edit/:id" element={<EditIssue />} />
+                {/* Issue */}
+                <Route path="/issue" element={<IssueList />} />
+                <Route path="/issue/create" element={<CreateIssue />} />
+                <Route path="/issue/edit/:id" element={<EditIssue />} />
 
-                    {/* Book */}
-                    <Route path="/book" element={<BookList />} />
-                    <Route path="/book/create" element={<CreateBook />} />
-                    <Route path="/book/edit/:id" element={<EditBook />} />
+                {/* Book */}
+                <Route path="/book" element={<BookList />} />
+                <Route path="/book/create" element={<CreateBook />} />
+                <Route path="/book/edit/:id" element={<EditBook />} />
 
-                    {/* Member */}
-                    <Route path="/member" element={<MemberList />} />
-                    <Route path="/member/create" element={<CreateMember />} />
-                    <Route path="/member/edit/:id" element={<EditMember />} />
+                {/* Member */}
+                <Route path="/member" element={<MemberList />} />
+                <Route path="/member/create" element={<CreateMember />} />
+                <Route path="/member/edit/:id" element={<EditMember />} />
 
-                    {/* Author */}
-                    <Route path="/author" element={<AuthorList />} />
-                    <Route path="/author/create" element={<CreateAuthor />} />
-                    <Route path="/author/edit/:id" element={<EditAuthor />} />
+                {/* Author */}
+                <Route path="/author" element={<AuthorList />} />
+                <Route path="/author/create" element={<CreateAuthor />} />
+                <Route path="/author/edit/:id" element={<EditAuthor />} />
 
-                    {/* Category */}
-                    <Route path="/category" element={<CategoryList />} />
-                    <Route path="/category/create" element={<CreateCategory />} />
-                    <Route path="/category/edit/:id" element={<EditCategory />} />
+                {/* Category */}
+                <Route path="/category" element={<CategoryList />} />
+                <Route path="/category/create" element={<CreateCategory />} />
+                <Route path="/category/edit/:id" element={<EditCategory />} />
 
-                    {/* Publisher */}
-                    <Route path="/publisher" element={<PublisherList />} />
-                    <Route path="/publisher/create" element={<CreatePublisher />} />
-                    <Route path="/publisher/edit/:id" element={<EditPublisher />} />
+                {/* Publisher */}
+                <Route path="/publisher" element={<PublisherList />} />
+                <Route path="/publisher/create" element={<CreatePublisher />} />
+                <Route path="/publisher/edit/:id" element={<EditPublisher />} />
 
-                    {/* Setting */}
-                    <Route path="/setting" element={<SettingList />} />
-                    <Route path="/setting/create" element={<CreateSetting />} />
-                    <Route path="/setting/edit/:id" element={<EditSetting />} />
+                {/* Setting */}
+                <Route path="/setting" element={<SettingList />} />
+                <Route path="/setting/create" element={<CreateSetting />} />
+                <Route path="/setting/edit/:id" element={<EditSetting />} />
 
-                </Route>
+            </Route>
 
-            </Routes>
+            {/* Unknown Route */}
+            <Route
+                path="*"
+                element={<Navigate to="/issue" replace />}
+            />
 
-        </div>
+        </Routes>
     )
 }
 
