@@ -183,7 +183,7 @@ const EditAuthor = () => {
                             type="submit"
                             className="rounded-lg bg-slate-900 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700"
                         >
-                            Update Author
+                            Updated Author 
                         </button>
 
                     </div>
